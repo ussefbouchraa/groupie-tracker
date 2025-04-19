@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Locations Dates</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.50) 50%, rgba(0, 0, 0, 0.85) 100%);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        header {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            text-align: center;
+            color: #ff4747;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .page-title {
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #FBC02D;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 12px;
+            margin: 30px auto;
+            width: 40%;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            animation: titleGlow 3s ease-in-out infinite;
+        }
+
+        .page-title:hover {
+            transform: scale(1.05);
+            background-color: rgba(255, 85, 0, 0.1);
+        }
+
+        @keyframes titleGlow {
+            0% { text-shadow: 0 0 10px rgba(206, 179, 179, 0.8); }
+            50% { text-shadow: 0 0 20px rgba(206, 179, 179, 0.9); }
+            100% { text-shadow: 0 0 10px rgba(206, 179, 179, 1); }
+        }
+
+        .artist-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 30px;
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #fbc02d55;
+  max-width: 900px;
+  margin: auto;
+}
+
+.artist-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.artist-image {
+   margin-top: 82px; 
+  width: 200px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #fbc02d55;
+  margin-bottom: 15px;
+}
+
+.artist-meta {
+  background-color: #2c2c2c;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: #FBC02D;
+  font-size: 1rem;
+  width: 200px;
+  text-align: center;
+}
+
+.artist-right {
+  flex: 1;
+}
+
+.artist-name {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #FBC02D;
+}
+
+
+        .artist-image:hover {
+            transform: scale(1.03);
+        }
+
+        .artist-image {
+  transition: transform 0.3s ease;
+}
+
+footer {
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+
+        .details-section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .location-container {
+    border: 2.5px solid #FBC02D;
+    display: flex;
+    flex-direction: column; /* ✅ NEW: Stack items vertically */
+    border-radius: 30px;
+    margin: 10px 0;
+    padding: 10px;
+    transition: box-shadow 0.3s ease;
+    align-items: center; /* Optional: center items like button */
+}
+
+
+        .location-header {
+            cursor: pointer;
+            margin: auto;
+            color: #FBC02D;
+            font-size: 1rem; /* Slightly bigger text */
+            font-weight: bold;
+            background-color: #2c2c2c;
+            padding: 5px 2px; /* Bigger padding for more space inside */
+            border-radius: 50px; /* More rounded edges */
+            display: inline-block;
+            width: 50%; /* Fill container (or reduce/increase as needed) */
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 0 10px rgba(251, 192, 45, 0.2); /* Optional soft glow */
+}
+
+        .location-header:hover {
+            background-color: #000000;
+            transform: translateY(-2px);
+        }
+
+        .toggle-checkbox {
+            display: none;
+        }
+
+        .date-list {
+            display: none;
+            padding: 3px 0px;
+            margin-top: 5px;
+            border-radius: 2px;
+            text-align: center
+        }
+
+        .toggle-checkbox:checked + .date-list {
+            display: block;
+        }
+
+        .date-list li {
+            background-color: #333;
+            margin: 8px;
+            padding: 5px 100px;
+            border-left: 4px solid #FBC02D;
+            border-radius: 20px;
+            font-size: 1rem;
+            color: #FBC02D;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #000000;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+        
+        .artist-name {
+    color: #FBC02D;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+
+.artist-meta p {
+  margin: 2px 0px;
+  font-size: 1.1rem;
+  color: #FBC02D;
+}
+@media (max-width: 768px) {
+  .artist-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .artist-left, .artist-right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .artist-image {
+    margin-top: 30px;
+  }
+}
+
+
+    </style>
+</head>
+<body>
+
+    <header class="page-title">Locations Dates</header>
+  
+    <div class="artist-card">
+        <div class="artist-left">
+          <img src="{{.Image}}" alt="Artist Image" class="artist-image" />
+          <div class="artist-meta">
+            <p><strong>Creation Date:</strong> {{.Cdate}}</p>
+            <p><strong>First Album:</strong> {{.Falbum}}</p>
+          </div>
+        </div>
+      
+        <div class="artist-right">
+          <h2 class="artist-name">{{.Name}}</h2>
+      
+          {{range $location, $dates := .Relations}}
+          <div class="location-container">
+            <label class="location-header" for="location-{{$location}}">{{$location}} ⤵</label>
+            <input type="checkbox" id="location-{{$location}}" class="toggle-checkbox" />
+            <div class="date-list">
+              <ul>
+                {{range $dates}}
+                <li><span>{{.}}</span></li>
+                {{end}}
+              </ul>
+            </div>
+          </div>
+          {{end}}
+        </div>
+      </div>
+      
+    <footer>&copy; 2025 Spites & Shark</footer>
+  
+  </body>
+  
+    </html>
+    
