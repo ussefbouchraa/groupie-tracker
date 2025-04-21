@@ -95,7 +95,6 @@ func Hundler(w http.ResponseWriter, r *http.Request) {
 		err := tmpl.Execute(w, groupieData.Artists)
 		if err != nil { w.WriteHeader(500); TmplStatus.Execute(w, "500 Internal Server Error"); return }
 		
-		// w.WriteHeader(200)
 
 	case strings.HasPrefix(r.URL.Path, "/locations/") && r.Method == "GET":
 
@@ -111,7 +110,6 @@ func Hundler(w http.ResponseWriter, r *http.Request) {
 		err = tmpl.Execute(w, dateRelationsData[artistID])
 		if err != nil { w.WriteHeader(500); TmplStatus.Execute(w, "500 Internal Server Error"); return }
 	
-		// w.WriteHeader(200)
 	default:
 		w.WriteHeader(404); TmplStatus.Execute(w, "404 Not Found"); return 
 
@@ -124,7 +122,7 @@ func main() {
 
 	FetchData()
 	http.HandleFunc("/", Hundler)
-
+	
 	fmt.Println("Server started at http://localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
