@@ -48,9 +48,7 @@ func FetchData() {
 
 	for url, dectag := range urls {
 		resp, err := http.Get(url)
-		if err != nil {
-			log.Fatal("Error fetching data:", err)
-		}
+		if err != nil { log.Fatal("Error fetching data:", err) }
 		defer resp.Body.Close()
 
 		if err := json.NewDecoder(resp.Body).Decode(dectag); err != nil {
