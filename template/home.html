@@ -22,7 +22,7 @@
         h1 {
             text-align: center;
             text-decoration: underline;
-            font-size: 3rem;
+            font-size: 2rem;
             margin-top: 50px;
             color: #FBC02D;
             letter-spacing: 2px;
@@ -66,7 +66,6 @@
 
         .artist-card h2 {
             font-size: 1.5rem;
-            text-transform: uppercase;
             color: #FBC02D;
             margin-bottom: 10px;
             letter-spacing: 1px;
@@ -97,9 +96,22 @@
                 width: 90%;
                 margin-bottom: 20px;
             }
-            body > h1 {
-                font-size: 2rem;
-            }
+        }
+        .search-bar{
+            margin: auto;
+            display: flex;
+            text-align: center;
+            width:50%;
+            height: 40px;
+            border-radius: 5px;
+            box-shadow: 1px  1px 2px rgb(122, 119, 119);
+            padding: 10px;
+            outline: none;
+            border: none;
+            font-size:medium;
+            color: rgba(30, 30, 30, 0.9); 
+            text-transform: uppercase;
+
         }
 
     </style>
@@ -109,11 +121,12 @@
 <body>
 
 <h1>Artist Showcase</h1>
+<input type="search" class="search-bar" placeholder="search bar   🔎" onchange="window.location.href='#' + this.value.toUpperCase()" >
 <div class="artist-container">
     {{range .}}
-    <a href="/locations/{{.ID}}" class="artist-card" style="text-decoration: none; color: inherit;">
+    <a href="/locations/{{.ID}}" class="artist-card" id="{{.Name}}" style="text-decoration: none; color: inherit;">
         <img src="{{.Image}}" alt="Image of {{.Name}}" />
-        <h2>{{.Name}}</h2>
+        <h2 >{{.Name}}</h2>
         <p><strong>Members:</strong> 
             {{range $index, $member := .Members}}
                 {{if $index}}, {{end}}{{$member}}

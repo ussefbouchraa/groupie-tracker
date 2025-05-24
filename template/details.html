@@ -13,13 +13,24 @@
       margin: 0;
       padding: 0;
     }
-
-    header {
-      text-align: center;
-      padding: 20px;
-      font-size: 2rem;
+    nav {
+      display: flex;
+      justify-content: space-between;
       background: #222;
+      padding: 20px;
+      overflow: hidden;
+    }
+    header {
+      font-size: 2rem;
       color: #FBC02D;
+    }
+    nav button {
+    background: #333;
+    color: #FBC02D;
+    border: none;
+    border-radius: 5px;
+    font-size: medium;
+    cursor: pointer;
     }
 
     .artist-card {
@@ -97,7 +108,10 @@
 </head>
 <body>
 
-  <header>Locations Dates</header>
+  <nav>
+    <header>Locations Dates</header>
+    <button onclick="window.location.href='http://localhost:8080'"> Go Back</button>
+  </nav>
 
   <div class="artist-card">
 

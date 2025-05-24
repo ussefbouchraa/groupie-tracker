@@ -41,6 +41,7 @@ type Details struct {
 	Relations map[string][]string
 }
 
+
 func FetchData() {
 	urls := map[string]any{
 		"https://groupietrackers.herokuapp.com/api/artists":  &groupieData.Artists,
@@ -57,6 +58,10 @@ func FetchData() {
 		if err := json.NewDecoder(resp.Body).Decode(dectag); err != nil {
 			log.Fatal("Error decoding data:", err)
 		}
+		
+	}
+	for i := range groupieData.Artists {
+		groupieData.Artists[i].Name = strings.TrimSpace(strings.ToUpper(groupieData.Artists[i].Name))
 	}
 
 	dateRelationsData = make(map[int]any)
